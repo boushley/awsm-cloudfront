@@ -2,6 +2,10 @@
 
 This is an [awsm](https://github.com/awsm-org/awsm) module that puts a CloudFront distribution in front of your JAWS project.
 
+## Manually update your resources-cf.json
+Right now this project uses hard coded values for the S3 bucket and the API Gateway endpoint. You'll need to update your
+`resources-cf.json` accordingly. This is [an issue](https://github.com/awsm-org/awsm/issues/2) that we're working to resolve.
+
 ## Now: Web Applications using Just AWS Without Servers!
 
 ### The Pieces
