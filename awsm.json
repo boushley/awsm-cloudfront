@@ -1,0 +1,65 @@
+{
+  "name": "cloudfront",
+  "version": "0.0.1",
+  "location": "https://github.com/boushley/awsm-cloudfront",
+  "author": "boushley",
+  "description": "Define the resources necessary for creating a CloudFront distribution in front of a static S3 bucket and API Gateway endpoints",
+  "resources": {
+    "cloudFormation": {
+      "ApiGatewayIamPolicyDocumentStatements": [],
+      "LambdaIamPolicyDocumentStatements": [],
+      "Resources": {
+        "CloudFrontDistribution": {
+           "Type" : "AWS::CloudFront::Distribution",
+           "Properties" : {
+              "DistributionConfig" : {
+                "DefaultRootObject" : "index.html",
+                "Enabled" : true,
+                "DefaultCacheBehavior" : {
+                   "AllowedMethods" : ["GET", "HEAD"],
+                   "CachedMethods" : ["HEAD", "GET"],
+                   "ForwardedValues" : {
+                     "QueryString" : true
+                   },
+                   "MinTTL" : "0",
+                   "TargetOriginId" : "frontend-s3-bucket",
+                   "ViewerProtocolPolicy" : "allow-all"
+                },
+                "CacheBehaviors" : [
+                  {
+                     "AllowedMethods" : ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"],
+                     "CachedMethods" : ["HEAD", "GET"],
+                     "ForwardedValues" : {
+                       "QueryString" : true
+                     },
+                     "MinTTL" : "0",
+                     "PathPattern" : "users/*",
+                     "TargetOriginId" : "api-backend-dev-stage",
+                     "ViewerProtocolPolicy" : "redirect-to-https"
+                  }
+                ],
+                "Origins" : [
+                  {
+                    "CustomOriginConfig" : {
+                      "HTTPSPort" : "443",
+                      "OriginProtocolPolicy" : "match-viewer"
+                    },
+                    "DomainName" : "hwb072hele.execute-api.us-west-2.amazonaws.com",
+                    "Id" : "api-backend-dev-stage",
+                    "OriginPath" : "/dev"
+                  },
+                  {
+                    "DomainName" : "jaws-s3.boushley.net.s3.amazonaws.com",
+                    "Id" : "frontend-s3-bucket",
+                    "OriginPath" : "",
+                    "S3OriginConfig" : {}
+                  }
+                ],
+                "PriceClass" : "PriceClass_100"
+              }
+           }
+        }
+      }
+    }
+  }
+}
