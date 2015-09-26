@@ -33,7 +33,7 @@
                        "QueryString" : true
                      },
                      "MinTTL" : "0",
-                     "PathPattern" : "users/*",
+                     "PathPattern" : "api/*",
                      "TargetOriginId" : "api-backend-dev-stage",
                      "ViewerProtocolPolicy" : "redirect-to-https"
                   }
