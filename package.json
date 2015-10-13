@@ -1,0 +1,20 @@
+{
+  "name": "awsm-cloudfront",
+  "version": "0.1.0",
+  "description": "AWSM Module for JAWS projects that demonstrates how to host a single page web application behind a CloudFront distribution.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boushley/awsm-cloudfront.git"
+  },
+  "keywords": [
+    "JAWS",
+    "awsm",
+    "cloudfront"
+  ],
+  "author": "Aaron Boushley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/boushley/awsm-cloudfront/issues"
+  },
+  "homepage": "https://github.com/boushley/awsm-cloudfront#readme"
+}
