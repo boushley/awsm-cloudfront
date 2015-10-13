@@ -2,9 +2,18 @@
 
 This is an [awsm](https://github.com/awsm-org/awsm) module that puts a CloudFront distribution in front of your JAWS project.
 
-## Manually update your resources-cf.json
+## Setup and Insallation
+
+First install this module. This takes two commands, first run: `npm install --save awsm-cloudfront` then run `jaws 
+postinstall awsm-cloudfront npm`.
+
+This will update your `resources-cf.json` template for each stage. Now you need to update your `resources-cf.json` files.
+
+### Manually update your resources-cf.json
 Right now this project uses hard coded values for the S3 bucket and the API Gateway endpoint. You'll need to update your
-`resources-cf.json` accordingly. This is [an issue](https://github.com/awsm-org/awsm/issues/2) that we're working to resolve.
+`resources-cf.json` accordingly. You'll want to set your own S3 bucket for hosting the static contents of your website,
+and you'll want to specify your API Gateway host as the host for the custom origin, and the API Gateway stage as 
+the path for that custom origin. This is [an issue](https://github.com/awsm-org/awsm/issues/2) that we're working to resolve.
 
 ## Now: Web Applications using Just AWS Without Servers!
 
