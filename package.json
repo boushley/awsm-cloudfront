@@ -1,6 +1,6 @@
 {
   "name": "awsm-cloudfront",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "AWSM Module for JAWS projects that demonstrates how to host a single page web application behind a CloudFront distribution.",
   "repository": {
     "type": "git",
